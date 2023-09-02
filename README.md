@@ -7,9 +7,9 @@ Undergraduate Final Year Project
 - `code`: Contains all the files in the project.
     The number of samples in these two directories is 8:2.
 
-    - `SplitDataset.py`: Script used to split the `data/data` folder into a train set and val set with a ratio of 8:2.
-    - `ResizeImage.py`: Script used to resize the image file size to (224x224). The processed images will be presented in the `data_preprocess` directory.
-    - `DataAugmentation.py`: Script used to augment the image files. The `train` directory in the `data_preprocess` (the train set) will be augmented.
+    - `SplitDataset.py`: Script used to split data into a train set and val set with a ratio of 8:2.
+    - `ResizeImage.py`: Script used to resize the image file size to (224x224). 
+    - `DataAugmentation.py`: Script used to augment the image files. 
     - `LabelGenerator.py`: Script for generating 3 text files, namely `train_label.txt`, `val_label.txt`, and `test_label.txt`. These text files are the labels for the dataset and will be utilized in the training and testing phase.
     - `Test.py`: Script for testing the model based on the `test_label.txt`.
     - `Train.py`: Script for training the model.
