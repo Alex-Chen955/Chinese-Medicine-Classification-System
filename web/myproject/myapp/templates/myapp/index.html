@@ -1,0 +1,66 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="{{ csrf_token }}">
+    <title>Chinese Medicine Classification</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Chinese Medicine Classification</h1>
+        <form id="predictForm" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <label for="image" class="custom-file-upload">
+                Select File
+            </label>
+            <input type="file" id="image" name="image" accept="image/*" required style="display: none;">
+            <img id="uploadedImage" src="" alt="Uploaded image" style="display: none; max-width: 100%; margin-top: 20px; margin-bottom: 20px">
+            <button type="submit">Submit</button>
+        </form>
+        <p id="result"></p>
+
+    </div>
+        <script>
+
+    // Listen for the change event on the file input
+document.querySelector('input[type="file"]').addEventListener("change", function (e) {
+    let imageFile = e.target.files[0];
+    let reader = new FileReader();
+    reader.onload = function (event) {
+        let uploadedImage = document.getElementById("uploadedImage");
+        uploadedImage.src = event.target.result;
+        uploadedImage.style.display = "block";
+    };
+    reader.readAsDataURL(imageFile);
+});
+
+document.getElementById("predictForm").addEventListener("submit", async function (e) {
+    e.preventDefault();
+    let formData = new FormData(e.target);
+
+    // Make the AJAX request without the headers part
+    let response = await fetch("/", {
+        method: "POST",
+        body: formData
+    });
+
+    // Handle the JSON response
+    let data = await response.json();
+    if (data.result !== undefined) {
+        document.getElementById("result").innerText = "Label: " + data.result;
+    } else {
+        document.getElementById("result").innerText = "Error: " + data.error;
+    }
+});
+
+        </script>
+
+
+
+    </body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chinese Medicine Classification</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <h1>Chinese Medicine Classification</h1>
+    <form id="predictForm" method="post" enctype="multipart/form-data">
+        <input type="hidden" name="csrfmiddlewaretoken" value="VhHFqB2xwOrvgkybPBK2cmJHVjShZgTqNHNku0MwTxLqCfdMS2zVclC6gFTijfQa">
+        <input type="file" name="image" accept="image/*" required>
+        <button type="submit">Submit</button>
+    </form>
+
+     <p id="result"></p>
+    <script>
+    document.getElementById("predictForm").addEventListener("submit", async function (e) {
+        e.preventDefault();
+        let formData = new FormData(e.target);
+        let response = await fetch("/", { method: "POST", body: formData });
+        let data = await response.json();
+
+        if (data.result !== undefined) {
+            document.getElementById("result").innerText = "Result: " + data.result;
+        } else {
+            document.getElementById("result").innerText = "Error: " + data.error;
+        }
+    });
+</script>
+
+
+
+</body>
+</html>
