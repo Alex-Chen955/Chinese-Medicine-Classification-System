@@ -1,0 +1,151 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap');
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
+    /* margin-top: -50px; */
+}
+
+.container {
+    width: 800px;
+    height: auto;
+    min-height: 600px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.85); /* Updated background color */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+    border-radius: 10px;
+    height: 600px; /* Set a fixed height for the container */
+    overflow-y: auto; 
+    scroll-behavior: smooth;
+}
+
+.container::-webkit-scrollbar {
+    width: 6px;
+}
+
+.container::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 3px;
+    transition: background-color 0.3s ease;
+}
+.container:hover::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.container::-webkit-scrollbar-track {
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 3px;
+}
+
+h1 {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 40px;
+    color: #4a4a4a;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 1s ease-in-out; /* Add animation */
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+input[type="file"],
+button {
+    font-size: 1rem;
+    padding: 10px 20px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+input[type="file"]:focus,
+button:focus,
+.custom-file-upload:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.4);
+}
+
+/* input[type="file"] {
+    background-color: #66bb6a;
+    color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+} */
+
+input[type="file"] {
+    display: none;
+}
+
+input[type="file"]:hover {
+    background-color: #4caf50;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.25);
+}
+
+button {
+    background-color: #4CAF50;
+    color: #ffffff;
+    box-shadow:    0 2px 4px rgba(0, 0, 0, 0.25);
+    transition: all 0.3s ease; /* Add transition */
+}
+
+button:hover {
+    background-color: #45a049;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.25);
+}
+
+#result {
+    font-size: 1.2rem;
+    text-align: center;
+    margin-top: 20px;
+    color: #4a4a4a;
+    animation: fadeIn 1s ease-in-out 1s forwards; /* Add animation */
+    opacity: 0; /* Add opacity for animation */
+}
+
+#uploadedImage {
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+}
+
+.custom-file-upload {
+    display: inline-block;
+    padding: 10px 40px; /* Increase horizontal padding to make the button longer */
+    font-size: 1rem;
+    background-color: #66bb6a;
+    color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+    border-radius: 20px; /* Increase border-radius to create rounded rectangle */
+    transition: all 0.3s ease;
+    margin-bottom: 20px;
+    transition: all 0.3s ease;
+    margin-bottom: 20px;
+}
+
+.custom-file-upload:hover {
+    background-color: #4caf50;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.25);
+}
