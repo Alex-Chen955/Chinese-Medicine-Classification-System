@@ -1,15 +1,10 @@
 # Chinese-Medicine-Classification-System
 Undergraduate Final Year Project
 
-This repository contains the code and resources for the Chinese Medicine Classification System, an undergraduate final year project.
 
 ## Directory Structure
 
 - `code`: Contains all the files in the project.
-    - `data`: Contains two folders, `data` and `test`.
-        - `data`: Collection of the train set and val set (which has not been divided).
-        - `test`: Test set.
-        
     The number of samples in these two directories is 8:2.
 
     - `SplitDataset.py`: Script used to split the `data/data` folder into a train set and val set with a ratio of 8:2.
